@@ -10,7 +10,7 @@ let schema = Schema({
     available: {type:Boolean, required: true}
 },
 {
-    timestamp: true
+    timestamps: true
 })
 
 let Product = model(collection, schema)

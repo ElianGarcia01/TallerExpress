@@ -9,7 +9,7 @@ let schema = Schema({
     active: { type: Boolean, required: true }
 },
     {
-        timestamp: true
+        timestamps: true
     })
 
 let Store = model(collection, schema)
