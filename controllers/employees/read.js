@@ -1,6 +1,4 @@
-import { response } from "express"
 import Employee from "../../models/Employee.js"
-
 
 let allEmployees = async (req, res, next) => {
     try {
@@ -9,37 +7,31 @@ let allEmployees = async (req, res, next) => {
             response: all
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error)
     }
 }
 
 let EmployeeByName = async (req, res, next) => {
     try {
-        let nameQuery = req.params.nameParams        
+        let nameQuery = req.params.nameParams
         let all = await Employee.find({ name: nameQuery })
         return res.status(200).json({
             response: all
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error)
     }
 }
 
 let EmployeeByPosition = async (req, res, next) => {
     try {
-        let nameQuery = req.params.positionParams        
+        let nameQuery = req.params.positionParams
         let all = await Employee.find({ position: nameQuery })
         return res.status(200).json({
             response: all
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error)
     }
 }
 
