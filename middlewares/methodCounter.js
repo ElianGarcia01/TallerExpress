@@ -2,7 +2,6 @@
 // Objeto para almacenar el conteo de métodos
 const methodCount = { GET: 0, POST: 0, PUT: 0, DELETE: 0 }
 
-
 // Middleware para contar y mostrar el uso de los métodos HTTP
 
 const methodCounter = (req, res, next) => {

@@ -7,7 +7,6 @@ import routerIndex from "./router/index.js"
 import not_found_handler from "./middlewares/not_found_handler.js"
 import error_handler from "./middlewares/error_handler.js"
 import error_400 from "./middlewares/error_400.js"
-import counter from "./middlewares/counter.js"
 import headerReq from "./middlewares/headersReq.js"
 import methodCounter from "./middlewares/methodCounter.js"
 
@@ -23,7 +22,7 @@ server.use(express.json())
 server.use(cors())
 server.use(morgan('dev'))
 server.use(methodCounter)
-// server.use(headerReq)
+server.use(headerReq)
 
 // configure router
 server.use("/api", routerIndex)
