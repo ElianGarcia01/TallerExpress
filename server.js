@@ -23,7 +23,7 @@ server.use(express.json())
 server.use(cors())
 server.use(morgan('dev'))
 server.use(methodCounter)
-server.use(headerReq)
+// server.use(headerReq)
 
 // configure router
 server.use("/api", routerIndex)
