@@ -32,6 +32,5 @@ server.use(not_found_handler) //Este es el ultimo middleware normal
 server.use(error_400)
 server.use(error_handler) //Este es el ultimo middleware de error
 
-
 // server listens for port requests and executes
 server.listen(PORT, ready)
