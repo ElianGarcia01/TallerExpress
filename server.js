@@ -26,9 +26,9 @@ server.use(headerReq)
 
 // configure router
 server.use("/api", routerIndex)
-server.use(not_found_handler) //Este es el ultimo middleware normal
 
 // Error handling configuration
+server.use(not_found_handler) //Primer middleware de error
 server.use(error_400)
 server.use(error_handler) //Este es el ultimo middleware de error
 

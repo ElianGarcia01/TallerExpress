@@ -8,9 +8,7 @@ let createMany = async (req, res, next) => {
             response: createdProducts
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error.message
-        })
+        next(error)
     }
 }
 

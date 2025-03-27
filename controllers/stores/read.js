@@ -1,4 +1,3 @@
-import { response } from "express"
 import Store from "../../models/Store.js"
 
 
@@ -9,9 +8,7 @@ let allStores = async (req, res, next) => {
             response: all
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error)
     }
 }
 
@@ -23,9 +20,7 @@ let storeByName = async (req, res, next) => {
             response: all
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error)
     }
 }
 
@@ -37,9 +32,7 @@ let storeByAddress = async (req, res, next) => {
             response: all
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error)
     }
 }
 

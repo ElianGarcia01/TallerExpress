@@ -9,9 +9,7 @@ let allProducts = async (req, res, next) => {
             response: all
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error)
     }
 }
 
@@ -23,9 +21,7 @@ let productByName = async (req, res, next) => {
             response: all
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error)
     }
 }
 
@@ -37,9 +33,7 @@ let productByBrand = async (req, res, next) => {
             response: all
         })
     } catch (error) {
-        return res.status(500).json({
-            response: error
-        })
+        next(error)
     }
 }
 export { allProducts, productByName, productByBrand }
