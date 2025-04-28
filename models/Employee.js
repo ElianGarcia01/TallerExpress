@@ -6,7 +6,8 @@ let schema = Schema({
     name: { type: String, required: true },
     position: { type: String, required: true },
     salary: { type: Number, required: false },
-    active: { type: Boolean, required: true }
+    active: { type: Boolean, required: true },
+    store: {type: Schema.Types.ObjectId, ref: "stores", required: true}
 },
 {
     timestamps: true
