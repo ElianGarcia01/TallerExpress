@@ -1,6 +1,6 @@
 import Employee from "../../models/Employee.js"
 
-let create = async (req, res, next) => {
+let register = async (req, res, next) => {
     try {
         let EmployeeInfo = req.body
         console.log(EmployeeInfo)
@@ -15,4 +15,4 @@ let create = async (req, res, next) => {
     }
 }
 
-export default create
+export default register

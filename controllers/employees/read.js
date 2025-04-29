@@ -9,7 +9,6 @@ let allEmployees = async (req, res, next) => {
         let query = {}
 
         if (name) {
-            console.log("Entro")
             query.name = {$regex: name , $options: 'i'}
         }
 
@@ -17,8 +16,7 @@ let allEmployees = async (req, res, next) => {
             query.position = position
         }
         
-
-        let all = await Employee.find(query).populate("store", "").exec()
+        let all = await Employee.find(query).select('+password')
 
         return res.status(200).json({
             response: all
