@@ -3,7 +3,22 @@ import "../../models/Store.js";
 
 let allEmployees = async (req, res, next) => {
     try {
-        let all = await Employee.find().populate("store", "").exec()
+
+        let {name, position} = req.query
+
+        let query = {}
+
+        if (name) {
+            console.log("Entro")
+            query.name = {$regex: name , $options: 'i'}
+        }
+
+        if (position) {
+            query.position = position
+        }
+        
+
+        let all = await Employee.find(query).populate("store", "").exec()
 
         return res.status(200).json({
             response: all
