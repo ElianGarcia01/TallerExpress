@@ -16,7 +16,7 @@ let allEmployees = async (req, res, next) => {
             query.position = position
         }
         
-        let all = await Employee.find(query).select('+password')
+        let all = await Employee.find(query)
 
         return res.status(200).json({
             response: all
