@@ -1,12 +1,17 @@
 import Employee from "../../models/Employee.js"
 
 export default async (req, res, next) => {
-    try {
-        return res.status(200).json({
-            succes: true,
-            message: "Signed in"
-        })
-    } catch (error) {
-        next(error)
-    }
+  try {
+    await Employee.findOneAndUpdate(
+      { email: req.user.email },
+      { online: true }
+    )
+    return res.status(200).json({
+      success: true,
+      message: "Signed in",
+      token: req.token
+    })
+  } catch (error) {
+    next(error)
+  }
 }

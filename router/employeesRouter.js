@@ -8,10 +8,11 @@ import schema from "../schemas/employees/create.js";
 import register from "../controllers/employees/create.js"
 import accountExists from "../middlewares/accountExists.js"
 import createHash from "../middlewares/createHash.js"
+import passport from "../middlewares/passport.js"
 
 const routerEmployees = Router()
 
-routerEmployees.get("/allEmployees", allEmployees)
+routerEmployees.get("/allEmployees", passport.authenticate('jwt',{session: false}), allEmployees)
 routerEmployees.get("/name/:nameParams", EmployeeByName)
 routerEmployees.get("/position/:positionParams", EmployeeByPosition)
 routerEmployees.post("/employeeCreate", validator(schema), accountExists, createHash, register)

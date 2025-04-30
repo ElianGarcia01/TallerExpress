@@ -8,7 +8,8 @@ let schema = Schema({
     salary: { type: Number, required: false },
     active: { type: Boolean, required: true },
     email: { type: String, required: true, unique: true },
-    password: { type: String, required: true }
+    password: { type: String, required: true },
+    online: {type: Boolean, default: false}
 },
 {
     timestamps: true
